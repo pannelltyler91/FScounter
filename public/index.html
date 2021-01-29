@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FScounter</title>
+       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    </head>
+    <body>
+        <button id="inc">Increment</button>
+        <p id='counter'><!--counter value goes here--></p>
+        <button id="decr">Decrement</button>
+        <br>
+        <button id="clear">Clear counter</button>
+    </body>
+    <script >
+ fetch('/value')
+ .then((response) => response.json())
+ .then((data)=> {
+     document.getElementById('counter').innerHTML = data;
+ });
+
+ document.getElementById('inc').addEventListener('click', function(){
+    fetch('/increment')
+ .then((response) => response.json())
+ .then((data)=> {
+     document.getElementById('counter').innerHTML = data;
+ })
+ });
+ document.getElementById('decr').addEventListener('click', function(){
+    fetch('/decrement')
+ .then((response) => response.json())
+ .then((data)=> {
+     document.getElementById('counter').innerHTML = data;
+ })
+ })
+
+  document.getElementById('clear').addEventListener('click', function(){
+    fetch('/DELETE')
+ .then((response) => response.json())
+ .then((data)=> {
+     document.getElementById('counter').innerHTML = data;
+ })
+ })
+      
+        
+    </script>
+</html>
